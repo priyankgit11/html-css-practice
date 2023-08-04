@@ -1,0 +1,208 @@
+body,
+p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+p,
+div {
+  overflow: hidden;
+}
+
+.hide-menus {
+  display: none;
+}
+
+.vertical-menu {
+  height: 100vh;
+  background-color: orange;
+  width: 20vw;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  list-style-type: none;
+  font-size: 2rem;
+}
+.vertical-menu li a {
+  text-decoration: none;
+  color: black;
+}
+.vertical-menu .cross {
+  left: 0;
+  margin-left: 0;
+  clear: both;
+  cursor: pointer;
+}
+
+.navbar {
+  background-color: rgb(12, 12, 51);
+}
+.navbar .container {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: end;
+  margin: 0 10%;
+}
+.navbar .container .hide-menus {
+  display: none;
+}
+.navbar .container img {
+  width: 40%;
+  float: right;
+}
+.navbar .container img.menu-logo {
+  display: none;
+  cursor: pointer;
+  width: 2rem;
+}
+.navbar .container .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0 0.5rem 1rem 0.5rem;
+  font-size: 1.3rem;
+  background-color: hsla(83, 75%, 100%, 0.3);
+  bottom: 0;
+  right: 10%;
+  justify-content: space-between;
+  height: 3rem;
+  gap: 2rem;
+}
+.navbar .container .nav li {
+  list-style-type: none;
+}
+.navbar .container .nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.main-body {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10%;
+}
+.main-body img {
+  width: 100%;
+}
+.main-body img.icon {
+  width: 1rem;
+  height: 1rem;
+}
+.main-body .input-radio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+.main-body .flex {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem 0;
+  gap: 2rem;
+}
+.main-body .flex .first h3 {
+  margin: 1rem;
+}
+.main-body .flex .first img {
+  width: 100%;
+}
+.main-body .flex .second .gradient-body {
+  position: relative;
+  background-image: linear-gradient(to bottom, rgb(52, 52, 255), white);
+}
+.main-body .flex .second .gradient-body h1 {
+  text-transform: uppercase;
+  color: white;
+  margin: 1.3rem;
+}
+.main-body .flex .second .gradient-body h2 {
+  color: black;
+  margin: 1.3rem;
+}
+.main-body .flex .second .gradient-body button {
+  right: 0;
+  bottom: 0;
+  float: right;
+}
+.main-body .flex .second ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+.main-body .flex .second ul li {
+  display: block;
+  position: relative;
+}
+.main-body .flex .second ul li img.not-icon {
+  height: 12vh;
+  width: 8vw;
+  float: left;
+  margin: 0.8rem;
+}
+.main-body .flex .second ul li button {
+  float: right;
+  right: 0;
+  bottom: 0;
+}
+.main-body .flex .second ul li p {
+  display: inline;
+}
+.main-body #carousel-img {
+  height: 82vh;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.footer {
+  background-color: rgb(12, 12, 51);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10%;
+  color: white;
+}
+.footer .contact-links .contact-img {
+  display: flex;
+  flex-shrink: 1;
+  gap: 20rem;
+}
+.footer .contact-links .contact-img .contact-icon {
+  width: 100%;
+}
+
+p {
+  font-size: 1.3rem;
+  margin: 2rem 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-size: 1.4rem;
+}
+
+@media screen and (max-width: 1362px) {
+  .navbar .container .nav {
+    display: none;
+  }
+  .navbar .container img.menu-logo {
+    display: block;
+  }
+  .main-body .flex {
+    flex-direction: column;
+  }
+  .main-body .flex .first,
+  .main-body .flex .second {
+    flex: 50%;
+  }
+  .main-body .flex .second ul {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}/*# sourceMappingURL=main.css.map */
