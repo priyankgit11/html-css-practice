@@ -1,34 +1,44 @@
-const radios = document.getElementsByName("carousel");
-      var start = -1;
-      const stopInterval = setInterval(function () {
-        autoRotate(radios, ++start);
-      }, 2000);
-      function autoRotate(radios, start) {
-        const maxSize = Object.keys(radios).length;
-        start = start % maxSize;
-        console.log(start);
-        radios[start].checked = true;
-        document.getElementById("carousel-img").src =
-          "images/" + radios[start].id + ".png";
-      }
-      function changeCarousel(radio) {
-        document.getElementById("carousel-img").src =
-          "images/" + radio.id + ".png";
-        setInterval(2000);
-        clearInterval(stopInterval);
-        var cont = radio.id.substring(1) - 1;
-        setInterval(function () {
-          autoRotate(radios, ++cont);
-        }, 2000);
-      }
-      function showMenu()
-      {
-        const menu = document.getElementsByClassName("vertical-menu");
-        console.log(menu[0]);
-        menu[0].style.display = "flex";
-      }
-      function hideMenu()
-      {
-        const menu = document.getElementsByClassName("vertical-menu");
-        menu[0].style.display = "none";
-      }
+const radios = document.querySelectorAll("[name='carousel']");
+let intervalId = setInterval(autoRotate, 2000);
+let currentIndex = getCheckedIndex(); // Set to the initially checked radio button
+
+function getCheckedIndex() {
+  // Loop through the radio buttons and find the initially checked one
+  for (let i = 0; i < radios.length; i++) {
+    if (radios[i].checked) {
+      return i;
+    }
+  }
+  return 0; // If none is checked, default to the first one
+}
+
+function autoRotate() {
+  currentIndex = (currentIndex + 1) % radios.length;
+  console.log(currentIndex);
+  radios[currentIndex].checked = true;
+  updateImage(); // Update the image immediately
+}
+
+function updateImage() {
+  document.getElementById(
+    "carousel-img"
+  ).src = `images/${radios[currentIndex].id}.png`;
+}
+
+function changeCarousel(radio) {
+  clearInterval(intervalId);
+  currentIndex = Array.from(radios).indexOf(radio); // Get the index of the clicked radio button
+  updateImage(); // Update the image immediately
+  intervalId = setInterval(autoRotate, 2000); // Start rotating again
+}
+
+function showMenu() {
+  const menu = document.querySelector(".vertical-menu");
+  console.log(menu);
+  menu.style.display = "flex";
+}
+
+function hideMenu() {
+  const menu = document.querySelector(".vertical-menu");
+  menu.style.display = "none";
+}
